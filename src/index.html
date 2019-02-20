@@ -6,6 +6,81 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!--header-->
+    <div class="header">
+      <a href="#default" class="logo">HomeIcon</a>
+      <div class="header-left">
+        <a class="active" href="#home">Pokemon Hack</a>
+      </div>
+    </div>
+
+
+    <!-- pantalla de inicio-->
+    <section id="home">
+        <p>¿Qué quieres conocer sobre tu pokemon?</p>
+        <img src="">
+
+      <div>
+        <button id="compareBtn">Comparar</button>
+        <button id="weaknessBtn">Debilidades</button>
+      </div>
+
+    </section>
+
+
+    <!--Pantalla si selecciona 'comparar'-->
+    <div id="compareScreen">
+        <p>¡Ingresa los nombres de dos pokemones pasar saber cual ganará!</p>
+          <form autocomplete="on">
+            Pokemon 1:<input type="text" name="pokemon1"><br>
+            Pokemon 2: <input type="text" name="pokemon2"><br>
+            <input type="submit">    
+          </form>
+  
+      <button id="compareAgain">Comparar otro</button>
+      <button id= "exit">Salir</button> 
+    </div>
+
+
+    <!--Pantalla si selecciona 'debilidades'-->
+    <section id="weaknessScreen">
+      <p>Para conocer las debilidades, elige una categoría y el nombre</p>
+
+          <p>Elige una categoría:</p>
+              <select>
+                <option value="sorts">Selecciona</option>
+              </select>
+
+          <p>Elige el nombre de un Pokemón:</p>
+              <select>
+                <option value="names">Selecciona</option>
+              </select>
+
+    <!-- boton siguiente -->
+        <div class='buttons'>
+          <button id="btnGo" type="submit"><img id="arrow" src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Green_Arrow_Right.svg"></button>
+        </div>
+
+    </section>
+
+
+    <!--pantalla de 'los resultados de debilidades'-->
+    <div id="weaknessResults">
+        <p>Tu pokemon es blablabla y su tipo es blablab</p>
+
+          <div>
+            <button id="search">Buscar otro</button>
+            <button id="exit2">Salir</button>
+          </div>
+    </div>
+
+
+    <!--pantalla salida -->
+    <div id="exitScreen">
+          <p>Gracias por usar Pokemon Hack, te esperamos pronto!!</p>  
+    </div>
+
+    
     <div id="root"></div>
     <!-- <script src="./data/injuries/injuries.js"></script> -->
     <!-- <script src="./data/pokemon/pokemon.js"></script> -->
