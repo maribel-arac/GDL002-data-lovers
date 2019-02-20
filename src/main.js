@@ -27,10 +27,19 @@ function weaknessResults(){
 }
     document.getElementById('btnGo').addEventListener('click', weaknessResults);
 
-//Función 
+
 //función salir en pantalla 'debilidades'
 function exit2() {
 	document.getElementById('weaknessResults').style.display = "none";
 	document.getElementById('exitScreen').style.display = "block";
 }
-	document.getElementById('exit2').addEventListener('click', exit2);
+	document.getElementById('exit').addEventListener('click', exit2);
+ //funcion para llamar a namePokemon para que lo mande al selector   
+let listPokemon = POKEMON.pokemon   
+listPokemon.forEach(pokemon => {
+ let dropDownId=document.getElementById("selecPokemon");
+ console.log(dropDownId);
+ let option = document.createElement("option");
+ option.text = pokemon.name;
+ dropDownId.add(option);
+});
