@@ -1,5 +1,6 @@
 //funcion para cambiar a la pantalla de comparar al darle click en 'compareBtn'
-function compare() {
+function compare(event) {//
+	 console.log(event.target);	
 	document.getElementById('home').style.display = "none"; //darle invisibilidad
 	document.getElementById('compareScreen').style.display = "block"; //mostrar el bloque (pantalla/slide)
 }
@@ -8,10 +9,18 @@ function compare() {
 
 //funcion de salir en la pantalla de 'comparar'
 function exit() {
-	document.getElementById('compareScreen').style.display = "none";
+	document.getElementById('compareScreen').style.display = "none"; //darle invisibilidad
 	document.getElementById('exitScreen').style.display = "block";
 }
 	document.getElementById('exit').addEventListener('click', exit);
+
+// 	//funcion para limpiar y poder comparar otro
+// function compareAgain(){
+// 	document.getElementById('imagePokemon').value="";
+// }
+// 	document.getElementById('compareAgain').addEventListener('click', compareAgain);
+
+
 
 //funcion por si escoge 'debilidades' lo mande a esa pantalla
 function weaknessScreen(){
@@ -34,12 +43,76 @@ function exit2() {
 	document.getElementById('exitScreen').style.display = "block";
 }
 	document.getElementById('exit').addEventListener('click', exit2);
+
+
+
+
  //funcion para llamar a namePokemon para que lo mande al selector   
-let listPokemon = POKEMON.pokemon   
-listPokemon.forEach(pokemon => {
- let dropDownId=document.getElementById("selecPokemon");
- console.log(dropDownId);
- let option = document.createElement("option");
- option.text = pokemon.name;
- dropDownId.add(option);
+let listPokemon = POKEMON.pokemon
+ //Esta función compara .name por .name para ordenar alfabeticamente cada valor y lo enlaza con el forEach, ya que .sort devuelve un arreglo y forEach no.
+ let dropDownBox=document.getElementById("selectPokemon");
+ listPokemon.sort((a,b)=> {  
+	//console.log(a.name);
+	if (a.name < b.name) {
+		return -1;
+	  }
+	  if (a.name > b.name) {
+		return 1;
+	  }
+	 
+	  return 0;
+}).forEach(pokemon => {
+	//console.log(dropDownBox);
+
+	let option = document.createElement("option");
+	option.text = pokemon.name;
+	dropDownBox.add(option);
+	
 });
+
+dropDownBox.addEventListener("change", (event) => {
+	console.log(event.target.value);
+	document.getElementById("imagePokemon").src = filterImage(POKEMON.pokemon, event.target.value)
+
+})
+// dropDownBox.forEach(element=>{
+// 	j = image.innerHTML += `<div> <img class = "boxImage" src = "${element.img}" >`
+// })
+// let image= document.getElementById('imagePokemon');
+// image.setAttribute('src', ''+ listPokemon.img);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**Esta función compara .name por .name para ordenar alfabeticamente cada valor y lo enlaza con el forEach, ya que .sort devuelve un arreglo y forEach no*/
+let namePokemonOpponent = POKEMON.pokemon
+ 
+ namePokemonOpponent.sort((a,b)=> {  
+	//console.log(a.name);
+	if (a.name < b.name) {
+		return -1;
+	  }
+	  if (a.name > b.name) {
+		return 1;
+	  }
+	 
+	  return 0;
+}).forEach(pokemon => {
+	let dropDownBox=document.getElementById("selectOpponent");
+	//console.log(dropDownBox);
+	let option = document.createElement("option");
+	option.text = pokemon.name;
+	dropDownBox.add(option);
+});
+

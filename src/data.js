@@ -40,12 +40,36 @@
 (151) ["Bulbasaur", "Ivysaur"...] */
 function getDataBase(namePokemon){
   const allPokemons = [];
-let listPokemon = POKEMON.pokemon
+ 
+  let listPokemon = POKEMON.pokemon
   for (let i = 0; i < listPokemon.length; i++){
   listPokemon[i].hasOwnProperty('name') === namePokemon
      allPokemons.push(listPokemon[i].name);
-   
+    
+     
   }
 return allPokemons;
 }
+/**Función que devuelve la imagen del Pokemon (un sólo valor) según el nombre */
+// filterData:(data,namePokemon) =>{
+//   console.log(data,namePokemon);
+//   for(let i=0; i<data.length; i++){
+//     let pokemon = data[i];
+//     if(pokemon.name == namePokemon){
+//       return pokemon;
+//     }
+//   }
+// }
 
+/*Función para filtrar los pokemones por imagen. Se hizo una variable para en esta filtrar los pokemones donde 
+se compara con el nombre del pokemon seleccionado por el usuario y despues para entrar al objeto, se comienza en [0] para
+que de ahi, acceda solamente a la imagen*/
+ 
+// console.log(photoPokemons);
+// let imagePokemon = '';
+const filterImage = (listPokemon, selectPokemon) => {  
+  const image = listPokemon.filter(pokemon => (pokemon.name == selectPokemon));
+  console.log(image[0].img);
+  return image[0].img;
+}
+// console.log(filterImage(namePokemon,'img'));
