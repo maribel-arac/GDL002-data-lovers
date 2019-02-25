@@ -38,18 +38,18 @@
 /**Mandando a llamar a la función getDataBase, devuelve los 151 Pokemones
  * getDataBase();
 (151) ["Bulbasaur", "Ivysaur"...] */
-function getDataBase(namePokemon){
-  const allPokemons = [];
+// function getDataBase(namePokemon){
+//   const allPokemons = [];
  
-  let listPokemon = POKEMON.pokemon
-  for (let i = 0; i < listPokemon.length; i++){
-  listPokemon[i].hasOwnProperty('name') === namePokemon
-     allPokemons.push(listPokemon[i].name);
+//   let listPokemon = POKEMON.pokemon
+//   for (let i = 0; i < listPokemon.length; i++){
+//   listPokemon[i].hasOwnProperty('name') === namePokemon
+//      allPokemons.push(listPokemon[i].name);
     
      
-  }
-return allPokemons;
-}
+//   }
+// return allPokemons;
+// }
 /**Función que devuelve la imagen del Pokemon (un sólo valor) según el nombre */
 // filterData:(data,namePokemon) =>{
 //   console.log(data,namePokemon);
