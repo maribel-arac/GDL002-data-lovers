@@ -2,91 +2,124 @@
 <html>
   <head>
     <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" maximum-scale=1>
+
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--header-->
+
+    <section class="header">
+        <a href="#default" class="logo"></a> <button id="homeBtn" class="btn"><i class="fa fa-home"></i></button>
+        <div class="header-left">
+          <a class="active" href="#home">PokeHack</a>
+        </div>
+      </section>
+
+
+  <!-- pantalla de inicio-->
+  <section id="home">
+      <img id="homeImg" src="https://es.testsworld.net/files/2015/10/test-personalidad-pokemon.jpg">
+
+      <p>¡Bienvenidos a PokeHack! <br> Aquí encontrarás los 151 pokemones de la región de Kanto, donde 
+        podrás averiguar si tu pokemón favorito podrá ganar sus batallas ante su oponente. <br> ¡Atrevete a jugarlo! </p>
+
+    <div>
+      <button id="compareBtn">Comparar</button>
+      <button id="weaknessBtn">Pokedex</button>
+
+    </div>
+
+  </section>
+
+
+
+  <!--Pantalla que muestra los tipos y debilidades de cada pokemon seleccionado.-->
+  <div id="compareScreen" style = "display: none">
+      <p>Elige a tu pokemon y a un contrincante.</p>
+        <!-- <Selectores>  donde el usuario elige un pokemon y al elegirlo, se despliega la imagen de dicho pokemon-->
+            <select name = "listPokemon" id = "selectPokemon"></select>
+
+            
+            <!--Aquí es donde se imprime la imagen del pokemon y el src va vacío porque dependiendo del pokemon, es la imagen-->
+            <div >
+              <img id="imagePokemon" src="" alt="">
+            </div>
+              
+                 
+              <!--es el segundo selector para escoger el pokemon oponente-->
+
+              <select name  ="nameOpponent" id = "selectOpponent"></select>
+
+              <div>
+                <img id = "imageOpponent" src="" alt="">
+              </div> 
+          
+
+
+    <button id="compareAgain">Comparar</button>
+
+    <button id= "exit">Salir</button>
+  </div>
+
+
+
+  <!--Pantalla si elige Pokedex-->
+  <section id="weaknessScreen" style = "display: none">
+    <p>Aquí puedes conocer las caracteristicas de cada Pokemon de la región "Kanto"</p>
+
+        <!-- <p>Tipo:</p>
+
+            <select>
+              <option value="sorts">Selecciona</option>
+            </select>
+
+        <p>Nombre:</p>
+            <select>
+              <option value="names">Selecciona</option>
+
+            </select> -->
+
+  <!-- boton siguiente de la pantalla -->
+      <div class='buttons'>
+        <!-- <button id="btn" type="submit"></button> -->
+        <button id= "exitBtn">Salir</button>
+
+      </div>
+
+  </section>
+
+  <div id="weaknessResults" style = "display: none">
+      <p>Tu pokemon es blablabla y su tipo es blablab</p>
+
+        <div>
+          <button id="search">Buscar otro</button>
+
+          <button id="exit">Salir</button>
+
+        </div>
+  </div>
+
+
+  <!--pantalla salida -->
+  <div id="exitScreen" style = "display: none">
+
+        <p>Gracias por usar Pokemon Hack, te esperamos pronto!!</p>
+        <img id="exitImg" src="https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/5b0fcfa25bafe83df2c203b3/pokemon0_0.jpg">
+
+  </div>
   </head>
   <body>
-    <!--header-->
-    <div class="header">
-      <a href="#default" class="logo">HomeIcon</a>
-      <div class="header-left">
-        <a class="active" href="#home">Pokemon Hack</a>
-      </div>
-    </div>
-
-
-    <!-- pantalla de inicio-->
-    <section id="home">
-        <p>¿Qué quieres conocer sobre tu pokemon?</p>
-        <img src="">
-
-      <div>
-        <button id="compareBtn">Comparar</button>
-        <button id="weaknessBtn">Debilidades</button>
-      </div>
-
-    </section>
-
-
-    <!--Pantalla si selecciona 'comparar'-->
-    <div id="compareScreen">
-        <p>¡Ingresa los nombres de dos pokemones pasar saber cual ganará!</p>
-          <form autocomplete="on">
-            Pokemon 1:<input type="text" name="pokemon1"><br>
-            Pokemon 2: <input type="text" name="pokemon2"><br>
-            <input type="submit">    
-          </form>
-  
-      <button id="compareAgain">Comparar otro</button>
-      <button id= "exit">Salir</button> 
-    </div>
-
-
-    <!--Pantalla si selecciona 'debilidades'-->
-    <section id="weaknessScreen">
-      <p>Para conocer las debilidades, elige una categoría y el nombre</p>
-
-          <p>Elige una categoría:</p>
-              <select>
-                <option value="sorts">Selecciona</option>
-              </select>
-
-          <p>Elige el nombre de un Pokemón:</p>
-              <select>
-                <option value="names">Selecciona</option>
-              </select>
-
-    <!-- boton siguiente -->
-        <div class='buttons'>
-          <button id="btnGo" type="submit"><img id="arrow" src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Green_Arrow_Right.svg"></button>
-        </div>
-
-    </section>
-
-
-    <!--pantalla de 'los resultados de debilidades'-->
-    <div id="weaknessResults">
-        <p>Tu pokemon es blablabla y su tipo es blablab</p>
-
-          <div>
-            <button id="search">Buscar otro</button>
-            <button id="exit2">Salir</button>
-          </div>
-    </div>
-
-
-    <!--pantalla salida -->
-    <div id="exitScreen">
-          <p>Gracias por usar Pokemon Hack, te esperamos pronto!!</p>  
-    </div>
-
-    
     <div id="root"></div>
+
     <!-- <script src="./data/injuries/injuries.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
+    <script src="./data/pokemon/pokemon.js"></script>
     <!-- <script src="./data/steam/steam.js"></script> -->
     <!-- <script src="./data/worldbank/worldbank.js"></script> -->
     <!-- <script src="./data/lol/lol.js"></script> -->
+
     <script src="data.js"></script>
     <script src="main.js"></script>
   </body>
