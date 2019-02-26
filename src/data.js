@@ -37,19 +37,21 @@
 //-------------------------------------------------------------------
 /**Mandando a llamar a la función getDataBase, devuelve los 151 Pokemones
  * getDataBase();
-(151) ["Bulbasaur", "Ivysaur"...] */
-/*function getDataBase(namePokemon){
-  const allPokemons = [];
+
+(151) ["Bulbasaur", "Ivysaur"...] */
+// function getDataBase(namePokemon){
+//   const allPokemons = [];
  
-  let listPokemon = POKEMON.pokemon
-  for (let i = 0; i < listPokemon.length; i++){
-  listPokemon[i].hasOwnProperty('name') === namePokemon
-     allPokemons.push(listPokemon[i].name);
+//   let listPokemon = POKEMON.pokemon
+//   for (let i = 0; i < listPokemon.length; i++){
+//   listPokemon[i].hasOwnProperty('name') === namePokemon
+//      allPokemons.push(listPokemon[i].name);
     
      
-  }
-return allPokemons;
-}
+//   }
+// return allPokemons;
+// }
+
 /**Función que devuelve la imagen del Pokemon (un sólo valor) según el nombre */
 // filterData:(data,namePokemon) =>{
 //   console.log(data,namePokemon);
@@ -69,7 +71,15 @@ que de ahi, acceda solamente a la imagen*/
 // let imagePokemon = '';
 const filterImage = (listPokemon, selectPokemon) => {  
   const image = listPokemon.filter(pokemon => (pokemon.name == selectPokemon));
-  console.log(image[0].img);
+
+  //console.log(image[0].img);
   return image[0].img;
 }
 // console.log(filterImage(namePokemon,'img'));
+
+
+const filterImageOpponent = (nameOpponent, selectOpponent) => {  
+  const image = nameOpponent.filter(pokemon => (pokemon.name == selectOpponent));
+  //console.log(image[0].img);
+  return image[0].img;
+}
