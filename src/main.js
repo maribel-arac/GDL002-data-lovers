@@ -1,11 +1,19 @@
-//funcion para cambiar a la pantalla de comparar al darle click en 'compareBtn'
-function compare(event) {
+let listPokemon = window.POKEMON.pokemon
+//funcion home icon
+function homeIcon(){
+	document.getElementById('pokedexScreen').style.display = "none";
+	document.getElementById('compareScreen').style.display = "none";
+	document.getElementById('exitScreen').style.display = 'none';
+	document.getElementById('home').style.display = 'block';
+}
+document.getElementById('homeBtn').addEventListener('click',homeIcon);
+//funcion para cambiar a la pantalla de comparar al darle click en 'compareBtn' se encuentran los selectores
+function compare(event) {//
 	 //console.log(event.target);	
 	document.getElementById('home').style.display = "none"; //darle invisibilidad
 	document.getElementById('compareScreen').style.display = "block"; //mostrar el bloque (pantalla/slide)
 }
 	document.getElementById('compareBtn').addEventListener('click', compare);
-
 
 //funcion de salir en la pantalla de 'comparar'
 function exit() {
@@ -14,41 +22,29 @@ function exit() {
 }
 	document.getElementById('exit').addEventListener('click', exit);
 
-// 	//funcion para limpiar y poder comparar otro
-// function compareAgain(){
-// 	document.getElementById('imagePokemon').value="";
-// }
-// 	document.getElementById('compareAgain').addEventListener('click', compareAgain);
 
-
-
-//funcion por si escoge 'debilidades' lo mande a esa pantalla
-function weaknessScreen(){
-	document.getElementById('home').style.display = "none";
-	document.getElementById('weaknessScreen').style.display = "block";
+/**Funcion si escoge 'pokedex' lo mande a esa pantalla */
+function pokedexInfo(){
+	console.log('entro?');
+	document.getElementById('home').style.display = "block";
+	
+	//document.getElementById('root').style.display = "none";
 }
-	document.getElementById('weaknessBtn').addEventListener('click',weaknessScreen);
+document.getElementById('pokedexScreen').style.display = "none";
+	document.getElementById('pokedexBtn').addEventListener('click',pokedexInfo());
 
-//funcion para cambiar de la 'weaknessScreen' a 'resultsScreen'
-function weaknessResults(){
-	document.getElementById('weaknessScreen').style.display = "none";
-	document.getElementById('weaknessResults').style.display = "block";
-}
-    document.getElementById('btnGo').addEventListener('click', weaknessResults);
-
-
-//función salir en pantalla 'debilidades'
+//función salir en pantalla 'pokedex'
 function exit2() {
-	document.getElementById('weaknessResults').style.display = "none";
+	document.getElementById('pokedexScreen').style.display = "none";
 	document.getElementById('exitScreen').style.display = "block";
+	
 }
-	document.getElementById('exit').addEventListener('click', exit2);
+	document.getElementById('exitBtn').addEventListener('click', exit2);
 
-//funcion para llenar los selectores de HTML con todos los pokemones alfabeticamente
-let listPokemon = POKEMON.pokemon
+//funcion para llenar los selectores de HTML y ordenarlos alfabeticamente
 let fillInSelect = (selectId) => {
    let selectElement = document.getElementById(selectId);
-   listPokemon.sort((a,b)=> {
+   listPokemon.sort((a,b)=> {	//es la funcion que ordena alfabeticamente cada pokemon de la base de datos
        if (a.name < b.name) {
            return -1;
          }
@@ -63,14 +59,40 @@ let fillInSelect = (selectId) => {
        selectElement.add(option);
    });
 };
-fillInSelect("selectPokemon");
+fillInSelect("selectPokemon"); //aquí es donde se rellenan los selectores
 fillInSelect("selectOpponent");
 
-//al darle click, llama a la imagen de selector1(pokemon1) y selector 2(oponente)
+//es un string template donde se muestran: imagenes, tipos y debilidades de c/ pokemon elegido
+function pokeCard(objetPoke) {
+	//console.log(objetPoke);
+  return `
+	<div class="poke-box">
+	<p><img src="${objetPoke.img}"></p>
+	<p>Type: ${objetPoke.type}</p>
+	<p>Weakness: ${objetPoke.weaknesses}</p>
+	</div>
+`;
+}
+
+//muestra en la pantalla el pokemon seleccionado por el usuario junto con imagene, tipo y debilidades
 document.getElementById("selectPokemon").addEventListener("change", (event) => {
-   document.getElementById("imagePokemon").src = filterImage(listPokemon, event.target.value)
+	let objetPoke = filterData(listPokemon, event.target.value)
+	document.getElementById('featuresPokemon').innerHTML= pokeCard(objetPoke)
+  
+	
+});
+//muestra en la pantalla el oponente seleccionado por el usuario junto con imagene, tipo y debilidades
+document.getElementById("selectOpponent").addEventListener("change", (event) => {
+	const newObject = filterData(listPokemon, event.target.value);
+	// console.log(newObject);
+	document.getElementById("featuresOpponent").innerHTML = pokeCard(newObject);
+	
 });
 
-document.getElementById("selectOpponent").addEventListener("change", (event) => {
-   document.getElementById("imageOpponent").src = filterImageOpponent(listPokemon, event.target.value)
-});
+//se manda llamar la función computerData y el resultado, lo muestra en la pantalla
+document.getElementById('candies', 'selectPokemon').addEventListener("keyup", (event) => {
+	console.log("hola");
+	const candyObject = computerData(listPokemon, selectPokemon, event.target.value);
+	console.log(candyObject);
+	document.getElementById("results").innerHTML = candyObject;
+	});
