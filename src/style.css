@@ -1,23 +1,41 @@
-@import url('https://fonts.googleapis.com/css?family=Rajdhani|Teko'); 
-body {
-font-family: 'Rajdhani', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Rajdhani|Teko');
+
+
+p, form {
+  font-size: 30px;
+  font-family: 'Rajdhani', sans-serif;
+  position: center;
 }
+
+p{
+  font-weight: bold;
+}
+
+img {
+height: auto;
+max-width: 100%;
+}
+
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
-  padding: 20px 10px;
+  background-color: #0055F5;
+  display: block;
 }
+
 .btn {
-  background-color: DodgerBlue;
+  background-color: ;
   border: none;
   color: white;
+  background-color: red;
   padding: 12px 16px;
-  font-size: 16px;
+  font-size: 30px;
   cursor: pointer; 
 }
+
 .btn:hover {
-  background-color: RoyalBlue;
+  background-color: #02B12F;
 }
+
 .header a {
   float: left;
   color: black;
@@ -29,47 +47,95 @@ font-family: 'Rajdhani', sans-serif;
   border-radius: 4px;
   font-weight: bold;
 }
+
 .header a.logo {
   font-size: 14px;
   font-weight: bold;
 }
+
 .buttons {
   position: relative;
 }
-p {
-  font-size: 35px;
-}
-img {
-height: auto;
-max-width: 100%;
-}
-#home, #exitScreen {
-  text-align: center;
-}
-#btnGo{
-  position: absolute;
-  bottom: 1px;
-  right: 60px;
-  background-color: #FFFFFF;
-  border: 1px dotted black;
-  border-radius: 25px;
-}
-#arrow {
-  width: 25px;
-  height: 25px;
-}
-.poke-box {
-  border-color: black;
-  width: 30%;
+
+.poke-box, #allList {
+  width: 65%;
   border: 20px;
-  background-color: yellow;
+  margin: 30px auto;
+  background-color: #F5F390;
   text-align: center;
+  font-size: 25px;
+  font-family: 'Rajdhani', sans-serif;
+  border: 2px solid black;
+  border-collapse: collapse;
 }
 .algo {
   font-family: 'Rajdhani', sans-serif;
   display: inline-block;
-  
+  margin-left: 150px;
 }
+
+.pokeNames{
+  text-align: center;
+  padding-left: 200px;
+}
+
+#homeBtn {
+  position: absolute;
+  right: 25px;
+  top: 20px;
+}
+
+#home, #exitScreen, p {
+  text-align: center;
+}
+
+#compareBtn, #pokedexBtn {
+  background-color: #F1F518;
+  border: 1px solid black;
+  border-radius: 25px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+}
+
+
+#selectPokemon, #selectOpponent {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  margin-left: 300px;
+  background-color: #B2F1B9; 
+}
+
+
+#orderName {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  margin-left: 100px;
+  background-color: #B2F1B9; 
+}
+
+
+#exit, #exitBtn {
+  background-color: green;
+  color: white;
+  border: 2px solid black;
+  border-radius: 25px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 30px;
+  position: sticky;
+  bottom: 25px;
+  right: 20px;
+}
+
+#btnGo {
+  position: absolute;
+  bottom: 1px;
+  right: 60px;
+  background-color: #FFFFFF;
+  border: 3px dotted black;
+  border-radius: 25px;
+}
+
+
 /* esto es para que sea responsive y dentro de {} van los elementos que se deben de modificar*/
 @media only screen and ( max-width: 1024px) {
   header {
