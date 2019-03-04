@@ -1,4 +1,4 @@
-let listPokemon = window.POKEMON.pokemon
+let listPokemon = window.POKEMON.pokemon;
 //funcion home icon
 function homeIcon(){
 	document.getElementById('pokedexScreen').style.display = "none";
@@ -8,12 +8,12 @@ function homeIcon(){
 }
 document.getElementById('homeBtn').addEventListener('click',homeIcon);
 //funcion para cambiar a la pantalla de comparar al darle click en 'compareBtn' se encuentran los selectores
-function compare(event) {//
-	 //console.log(event.target);	
+function compare() {
 	document.getElementById('home').style.display = "none"; //darle invisibilidad
 	document.getElementById('compareScreen').style.display = "block"; //mostrar el bloque (pantalla/slide)
 }
 	document.getElementById('compareBtn').addEventListener('click', compare);
+
 
 //funcion de salir en la pantalla de 'comparar'
 function exit() {
@@ -25,14 +25,13 @@ function exit() {
 
 /**Funcion si escoge 'pokedex' lo mande a esa pantalla */
 function pokedexInfo(){
-	console.log('entro?');
-	document.getElementById('home').style.display = "block";
-	
+	document.getElementById('home').style.display = "none";
+	document.getElementById('pokedexScreen').style.display = "block";
 	//document.getElementById('root').style.display = "none";
 }
-document.getElementById('pokedexScreen').style.display = "none";
-	document.getElementById('pokedexBtn').addEventListener('click',pokedexInfo());
+document.getElementById('pokedexBtn').addEventListener('click',pokedexInfo);
 
+	
 //función salir en pantalla 'pokedex'
 function exit2() {
 	document.getElementById('pokedexScreen').style.display = "none";
@@ -67,32 +66,43 @@ function pokeCard(objetPoke) {
 	//console.log(objetPoke);
   return `
 	<div class="poke-box">
+	<p>Name: ${objetPoke.name}</p>
 	<p><img src="${objetPoke.img}"></p>
 	<p>Type: ${objetPoke.type}</p>
 	<p>Weakness: ${objetPoke.weaknesses}</p>
 	</div>
 `;
 }
-
 //muestra en la pantalla el pokemon seleccionado por el usuario junto con imagene, tipo y debilidades
 document.getElementById("selectPokemon").addEventListener("change", (event) => {
-	let objetPoke = filterData(listPokemon, event.target.value)
-	document.getElementById('featuresPokemon').innerHTML= pokeCard(objetPoke)
-  
-	
-});
+	let objetPoke = window.allPokemons.filterData(listPokemon, event.target.value);
+	document.getElementById('featuresPokemon').innerHTML= pokeCard(objetPoke);
+	console.log(JSON.stringify(objetPoke));
+  });
 //muestra en la pantalla el oponente seleccionado por el usuario junto con imagene, tipo y debilidades
 document.getElementById("selectOpponent").addEventListener("change", (event) => {
-	const newObject = filterData(listPokemon, event.target.value);
-	// console.log(newObject);
-	document.getElementById("featuresOpponent").innerHTML = pokeCard(newObject);
+	const newObject = window.allPokemons.filterData(listPokemon, event.target.value);
 	
-});
-
-//se manda llamar la función computerData y el resultado, lo muestra en la pantalla
+	document.getElementById("featuresOpponent").innerHTML = pokeCard(newObject);
+	});
+//Se manda llamar la función computStats y el resultado, lo muestra en la pantalla
 document.getElementById('candies', 'selectPokemon').addEventListener("keyup", (event) => {
-	console.log("hola");
-	const candyObject = computerData(listPokemon, selectPokemon, event.target.value);
-	console.log(candyObject);
+	//console.log("hola");
+	let selectPokemon = document.getElementById("selectPokemon");
+	const candyObject = window.allPokemons.computeStats(listPokemon,selectPokemon, event.target.value);
+	console.log(JSON.stringify(candyObject));
 	document.getElementById("results").innerHTML = candyObject;
 	});
+
+let orderNameList = document.getElementById("orderName");
+orderNameList.addEventListener("click", () => {
+  let pokeList = allPokemons.sortData(window.POKEMON.pokemon);
+  let pokemonBox = document.getElementById("allList");
+  let htmlBox = "";
+  for (let contPokemon = 0; contPokemon < pokeList.length; contPokemon++) {
+		htmlBox += `<section class="pokemonImgs"><span>${pokeList[contPokemon].num} ${pokeList[contPokemon].name}
+								${pokeList[contPokemon].weight}${pokeList[contPokemon].height}
+                <div><img src="${pokeList[contPokemon].img}"/></div></span></section>`;
+  }
+  pokemonBox.innerHTML = htmlBox;
+});
