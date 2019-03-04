@@ -29,4 +29,3 @@ window.allPokemons = {
       return orderAllName;
     },
   };
-
