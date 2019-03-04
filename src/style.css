@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css?family=Rajdhani|Teko');
+=======
+
+@import url('https://fonts.googleapis.com/css?family=Rajdhani|Teko'); 
+
+>>>>>>> master
 
 
 p, form {
@@ -135,11 +141,25 @@ max-width: 100%;
   border-radius: 25px;
 }
 
+<<<<<<< HEAD
 
 /* esto es para que sea responsive y dentro de {} van los elementos que se deben de modificar*/
 @media only screen and ( max-width: 1024px) {
+=======
+#arrow {
+  width: 25px;
+  height: 25px;
+
+}
+
+/* esto es para que sea responsive y dentro de {} van los elementos que se deben de modificar*/
+@media only screen and ( max-width: 1024px); {
+>>>>>>> master
   header {
     height: 100%;
     padding: 1rem !important;
   }
+<<<<<<< HEAD
 }
+=======
+>>>>>>> master
