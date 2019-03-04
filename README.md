@@ -35,7 +35,7 @@ El usuario necesita visualizar en la pantalla de inicio dos botones: conocer y P
 El usuario necesita visualizar el tipo y las debilidades de los 2 Pokemons seleccionados (*su Pokemon y su oponente)* para que se desplieguen dichas características y así el pueda determinar su favorito. También puede conocer cuantos candies le faltan para la siguiente evolución de su Pokemon
 
 
-### DOD
+DOD
 
  - [x] Al seleccionar al Pokemon y su oponente, se despliegan las debilidades y tipos de cada uno.
  - [x] El usuario tiene opción de salir de la pantalla y también regresar a la pantalla de inicio (*home*).
