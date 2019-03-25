@@ -1,4 +1,7 @@
 window.allPokemons = {
+  allPokemons:() =>{
+    return POKEMON.pokemon;
+  },
   /*Función para filtrar los pokemones por imagen. Se crea una variable para  filtrar los pokemones donde 
   se compara con el nombre del pokemon seleccionado por el usuario y despues para entrar al objeto, se comienza en
   [0] y de ahi, acceder solo a la imagen que pertenece al Pokemon seleccionado*/
@@ -7,6 +10,7 @@ window.allPokemons = {
     const data = listPokemon.filter(pokemon => (pokemon.name == selectPokemon));
     // Y retorna un objeto pokemon
     return data[0];
+
   },
 
   //Función es para saber cuantos candies le faltan al usuario para evolucionar su pokemon
@@ -28,4 +32,10 @@ window.allPokemons = {
       });
       return orderAllName;
     },
+
+  //Función para filtrar por tipo
+  filterType: (listPokemon, pokeType) => {
+    const filterByType = listPokemon.filter(listPokemon => listPokemon.type.includes(pokeType));
+    return filterByType;
+}
   };
