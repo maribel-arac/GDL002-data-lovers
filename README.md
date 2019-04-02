@@ -45,7 +45,7 @@ El usuario necesita visualizar el tipo y las debilidades de los 2 Pokemons selec
 
 El usuario quiere conocer todos los Pokemons de la región Kanto mostrando su imagen así como sus características básicas.
 
-###DOD
+### DOD
 
  - [x] Se muestran los 151 pokemons de la región Kanto  así como su información básica: nombre, imagen, tipo y debilidades.
  - [x] El usuario visualiza estilo y colores de la página terminada.
